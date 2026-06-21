@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+#接口忽略
+app/src/main/java/com/lm/shiguang/network/
