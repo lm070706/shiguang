@@ -5,6 +5,32 @@ import retrofit2.http.*
 import okhttp3.MultipartBody
 
 interface ApiService {
+
+    // 登录注册相关接口
+    @POST("auth/login")
+    suspend fun login(@Body request: LoginRequest): Response<ApiResponse<LoginResponse>>
+
+    @POST("auth/register")
+    suspend fun register(@Body request: RegisterRequest): Response<ApiResponse<Unit>>
+
+    @POST("auth/send-code")
+    suspend fun sendVerificationCode(@Query("email") email: String): Response<ApiResponse<Unit>>
+
+    // 用户信息相关接口
+    @PUT("users/{userId}")
+    suspend fun updateUserInfo(
+        @Path("userId") userId: Long,
+        @Body request: UpdateUserInfoRequest,
+        @Header("Authorization") token: String
+    ): Response<ApiResponse<Unit>>
+
+    @PUT("users/{userId}/password")
+    suspend fun resetPassword(
+        @Path("userId") userId: Long,
+        @Body request: ResetPasswordRequest,
+        @Header("Authorization") token: String
+    ): Response<ApiResponse<Unit>>
+
     // 笔记相关接口
     @POST("notes")
     suspend fun addNote(
@@ -46,30 +72,7 @@ interface ApiService {
         @Header("Authorization") token: String
     ): Response<BaseResponse<Boolean>>
 
-    // 登录注册相关接口
-    @POST("auth/login")
-    suspend fun login(@Body request: LoginRequest): Response<ApiResponse<LoginResponse>>
 
-    @POST("auth/register")
-    suspend fun register(@Body request: RegisterRequest): Response<ApiResponse<Unit>>
-
-    @POST("auth/send-code")
-    suspend fun sendVerificationCode(@Query("email") email: String): Response<ApiResponse<Unit>>
-
-    // 用户信息相关接口
-    @PUT("users/{userId}")
-    suspend fun updateUserInfo(
-        @Path("userId") userId: Long,
-        @Body request: UpdateUserInfoRequest,
-        @Header("Authorization") token: String
-    ): Response<ApiResponse<Unit>>
-
-    @PUT("users/{userId}/password")
-    suspend fun resetPassword(
-        @Path("userId") userId: Long,
-        @Body request: ResetPasswordRequest,
-        @Header("Authorization") token: String
-    ): Response<ApiResponse<Unit>>
 
     // 社区相关接口
     @GET("community/notes/community/public")
