@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 根布局改为 DrawerLayout，包裹主内容和侧拉栏 -->
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+
+    <!-- 原 CoordinatorLayout 主内容区（保留所有滚动特性） -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <!-- AppBarLayout + Toolbar（左上角菜单按钮） -->
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                app:title=""
+                app:navigationIcon="@drawable/ic_menu" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!-- 内容区域（修复重复的 behavior 属性） -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <!-- Fragment 容器 -->
+            <FrameLayout
+                android:id="@+id/fragment_container"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingBottom="50dp" />
+        </LinearLayout>
+
+        <!-- 底部导航栏 -->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:layout_gravity="bottom"
+            android:fitsSystemWindows="true"
+            app:menu="@menu/bottom_nav_menu"
+            app:backgroundTint="@color/white"
+            app:itemPaddingTop="3dp"
+            app:itemPaddingBottom="3dp" />
+
+        <!-- 悬浮按钮 -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="64dp"
+            android:src="@drawable/ic_add" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <!-- 侧拉栏菜单（新增） -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/drawer_header"
+        app:menu="@menu/drawer_menu"
+        android:background="@color/white" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

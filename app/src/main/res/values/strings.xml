@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">拾光</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="splash_fragment_label"></string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="jiazai">首次加载中</string>
+    <string name="shiguanglu">拾光录</string>
+    <string name="shiguangquan">拾光圈</string>
+    <string name="input_title">输入标题</string>
+    <string name="input_content">输入内容</string>
+    <string name="save_content">保存</string>
+    <string name="edit">编辑</string>
+    <string name="delete">删除</string>
+    <string name="share">分享</string>
+    <string name="settings">设置</string>
+    <string name="about">关于</string>
+    <string name="avatar">用户头像</string>
+    <string name="cancel">取消</string>
+    <string name="back">返回</string>
+    <string name="empty_notes_hint">暂无笔记，点击右下角按钮添加</string>
+    <string name="loading_notes">加载中...</string>
+    <string name="load_notes_failed">加载笔记失败，请重试</string>
+    <string name="lorem_ipsum">
+        shiguang
+    </string>
+</resources>

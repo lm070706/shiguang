@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="120dp"
+    android:padding="16dp"
+    android:background="@drawable/bg_item"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_marginBottom="8dp"
+    android:elevation="2dp">
+
+    <!-- 标题和内容 -->
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+android:layout_marginBottom="24dp">
+
+<TextView
+    android:id="@+id/tv_note_title"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:textColor="#333333"/>
+
+<TextView
+    android:id="@+id/tv_note_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textSize="14sp"
+    android:textColor="#666666"
+    android:layout_marginTop="8dp"
+    android:maxLines="2"
+    android:ellipsize="end"/>
+</LinearLayout>
+
+    <!-- 时间 -->
+<TextView
+android:id="@+id/tv_note_time"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textSize="12sp"
+android:textColor="#999999"
+android:layout_alignParentBottom="true"
+android:layout_alignParentEnd="true"
+android:text="1900-1-1 1:1"/>
+
+    </RelativeLayout>

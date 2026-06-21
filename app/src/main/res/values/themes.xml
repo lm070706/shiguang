@@ -1,0 +1,44 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Shiguang" parent="Theme.Material3.Light.NoActionBar">
+        <!-- 原有属性保留 -->
+        <item name="colorSecondary">@android:color/transparent</item>
+        <item name="colorOnSecondary">@android:color/black</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+
+        <!-- ========== 修复：光标显示核心配置（兼容所有版本） ========== -->
+        <!-- 1. 全局编辑框样式（改用通用EditText样式，避免Material3命名错误） -->
+        <item name="editTextStyle">@style/CustomEditTextStyle</item>
+        <!-- 2. 光标颜色（直接指定，不依赖Material3属性） -->
+        <item name="colorControlActivated">@android:color/black</item>
+    </style>
+
+    <!-- 修复：自定义EditText样式（兼容所有安卓版本） -->
+    <style name="CustomEditTextStyle" parent="android:Widget.EditText">
+        <!-- 强制显示光标 -->
+        <item name="android:cursorVisible">true</item>
+        <!-- 光标颜色（直接用黑色，无需依赖主题属性） -->
+        <item name="android:textCursorDrawable">@drawable/cursor_black</item>
+        <!-- 编辑框文字颜色 -->
+        <item name="android:textColor">@android:color/black</item>
+        <!-- 提示文字颜色 -->
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+        <!-- 移除高版本属性 textSelectHandleWidth，避免编译报错 -->
+    </style>
+
+    <style name="Theme.Shiguang.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:statusBarColor">@android:color/white</item>
+    </style>
+    <style name="CustomDialogStyle" parent="Theme.Material3.Light.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+</resources>

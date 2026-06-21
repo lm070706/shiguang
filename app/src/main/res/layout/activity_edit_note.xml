@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:fitsSystemWindows="true">
+
+    <!-- 取消按钮 -->
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/back" />
+
+    <!-- 标题输入框 -->
+    <EditText
+        android:id="@+id/etEditTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入标题"
+        android:textSize="20sp"
+        android:layout_marginBottom="16dp"
+        android:cursorVisible="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+    <!-- 内容输入框 -->
+    <EditText
+        android:id="@+id/etEditContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="请输入内容"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:cursorVisible="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
+
+    <!-- 添加图片按钮 -->
+    <Button
+        android:id="@+id/btnAddImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="添加图片"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- 图片预览容器：用 HorizontalScrollView 包裹 LinearLayout 实现横向滚动 -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:scrollbars="horizontal">
+
+        <LinearLayout
+            android:id="@+id/llImagePreview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp"/>
+    </HorizontalScrollView>
+
+    <!-- 保存修改按钮 -->
+    <Button
+        android:id="@+id/btnSaveEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="保存修改"/>
+
+</LinearLayout>
