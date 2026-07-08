@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 拾光录（个人内容） -->
+    <item
+        android:id="@+id/nav_shiguanglu"
+        android:icon="@drawable/ic_notebook"
+        android:title="@string/shiguanglu" />
+    <!-- 拾光圈（社区） -->
+    <item
+        android:id="@+id/nav_shiguangquan"
+        android:icon="@drawable/ic_community"
+        android:title="@string/shiguangquan" />
+</menu>

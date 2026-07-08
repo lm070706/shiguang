@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:fitsSystemWindows="true">
+
+    <!-- 标题栏：修正 marginBottom 为 layout_marginBottom -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发布到拾光圈"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 标题输入框 -->
+    <EditText
+        android:id="@+id/et_public_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入笔记标题"
+        android:maxLines="1"
+        android:padding="12dp"
+        android:background="@drawable/et_border"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- 内容输入框 -->
+    <EditText
+        android:id="@+id/et_public_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:hint="输入笔记内容（将公开展示）"
+        android:gravity="top"
+        android:padding="12dp"
+        android:background="@drawable/et_border"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- 图片选择按钮 -->
+    <Button
+        android:id="@+id/btn_add_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="添加图片"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- 修复：用HorizontalScrollView实现横向滚动 -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:scrollbars="horizontal">
+
+        <!-- 图片预览容器 -->
+        <LinearLayout
+            android:id="@+id/ll_image_preview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"/>
+    </HorizontalScrollView>
+
+    <!-- 发布按钮+进度条容器：用RelativeLayout包裹，实现进度条居中 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/btn_publish_public_note"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="发布到拾光圈"
+            android:backgroundTint="@color/blue"
+            android:textColor="@android:color/white"/>
+
+        <!-- 核心修正2：进度条放在RelativeLayout中，使用centerInParent -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+</LinearLayout>
